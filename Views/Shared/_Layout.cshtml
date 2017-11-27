@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .dropdown-menu {
+            background-color: white;
+        }
+
+        .top1 .navbar-nav .open .dropdown-menu {
+            position: absolute !important;
+            border: 1px solid #ccc !important;
+            background-color: white !important;
+        }
+
+        .top1 .navbar-nav .dropdown-menu .dropdown-menu {
+            position: relative !important;
+        }
+
+        .top1 .navbar-nav .open .dropdown-menu li a {
+            padding: 3px 20px !important;
+            line-height: 1.42857143 !important;
+        }
+
+        .open2 {
+            display: block;
+        }
+    </style>
+
+</head>
+<body style="background-image: url('/images/body-bg.jpg'); background-repeat: repeat;">
+    <header id="header">
+        <div class="container-fluid" style="max-width: 1500px;">
+            <div class="col-xs-12">
+                <div class="row banner-image">
+                    <a href="<%=Helpers.WebPages.Home %>" title="ShopTipperary">
+                        <img src="/images/banners/header-logo.png" title="ShopTipperary" alt="ShopTipperary" class="img-responsive center-block" />
+                    </a>
+                </div>
+                <div class="top2 left">
+                    <div class="collapse navbar-collapse" style="float: right;">
+                        <ul class="nav navbar-nav" style="float: right;">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="top2 right ">
+                    <div class="collapse navbar-collapse" style="float: left;">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="top1 right">
+                    <ul style="padding-top: 21px;">
+                        <a href="#" data-toggle="modal" data-target="#searchModal" title="Search">
+                            <li style="padding: 4px;"><span class="glyphicon glyphicon-search"></span>&nbsp; Search</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+    <!-- Begin Bottom Content -->
+    <div class="row" style="background-color: white; margin-top: 40px; padding-bottom: 20px; padding-top: 40px;">
+        <div class="col-md-6">
+            <div style="text-align: center;" id="subscribe">
+                <div class="container" style="border: 3px dashed #DBDBDB; margin-bottom: 20px; max-width: 90%;">
+                    <div style="position: relative; top: -20px;">
+                        <h2 style="margin-top: 0;"><em style="background-color: white; padding-left: 10px; padding-right: 10px;">Subscribe</em></h2>
+                        <p style="color: #B49E77; font-size: 16px;">Get the latest news and updates from Shop Tipperary.</p>
+                    </div>
+                    <div class="input-group" style="max-width: 50%; margin-left: auto; margin-right: auto;">
+                        <input id="emailSignupEmail" class="form-control" maxlength="60" type="text" placeholder="Your e-mail address" />
+                        <input id="emailSignupFirstName" type="hidden" value="" />
+                        <input id="emailSignupLastName" type="hidden" value="" />
+                        <span class="input-group-btn">
+                            <button id="emailSignupSend" type="button" class="btn btn-primary">SUBSCRIBE</button>
+                        </span>
+                    </div>
+
+                    <div class="row" style="height: 50px;">
+                        <div style="display: none;" id="emailSignupResponseArea">
+                            <div class="col-xs-2" id="emailSignupSpinner">
+                                <img src="/images/ajax-loader.gif" alt="loader" title="loader" class="img-responsive" />
+                            </div>
+                            <div class="col-xs-10">
+                                <div id="emailSignupMessage">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="text-align: center;">
+                <div class="container" style="border: 3px dashed #DBDBDB; margin-bottom: 20px; max-width: 90%;">
+                    <div style="position: relative; top: -20px;">
+                        <h2 style="margin-top: 0;"><em style="background-color: white; padding-left: 10px; padding-right: 10px;">Irish Vacations</em></h2>
+                        <p style="color: #B49E77; font-size: 16px;">Tipperary Is Your Irish Travel Expert!</p>
+                    </div>
+                    <div class="input-group" style="margin-left: auto; margin-right: auto; width: 100%; margin-top: -20px; margin-bottom: 28px;">
+                        <div class="col-md-2">
+                            <img src="/images/CIE_Logo.png" alt="CIE Travel" width="75" />
+                        </div>
+                        <div class="col-md-8" style="padding: 15px 0;">
+                            <span><a href="/CIETours/TourList.aspx" class="btn btn-primary" title="Book Travel">Click here to Book Travel</a></span>
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/images/NACTA_logo.png" alt="NACTA Travel" width="75" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="bottom-menu" style="margin-top: 0;">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul style="font-size: 16px; margin-top: 20px; margin-bottom: 24px; float: left; padding-left: 0;"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: white">
+        <div class="container" style="padding-top: 30px; padding-bottom: 30px; margin-top 0;">
+            <img src="//www.shoptipperary.com/images/footer/logo1.jpg" title="Americas Best Jewelers" alt="Americas Best Jewelers" class="partner-logo" />
+            <img src="//www.shoptipperary.com/images/footer/logo2.png" title="Jewelry Manufacurers of Ireland Accredited" alt="Jewelry Manufacurers of Ireland Accredited" class="partner-logo" />
+            <img src="//www.shoptipperary.com/images/footer/logo3.jpg" title="International Diamond Exchange Member" alt="International Diamond Exchange Member" class="partner-logo" />
+            <img src="//www.shoptipperary.com/images/footer/logo4.jpg" title="Jewelers of America Member" alt="Jewelers of America Member" class="partner-logo" />
+            <img src="//www.shoptipperary.com/images/footer/NACTA_FM.png" title="NACTA Member" alt="NACTA Member" class="partner-logo" />
+            <img src="//www.shoptipperary.com/images/footer/Retail-Council.png" title="Retail Council" alt="Retail Council" class="partner-logo" />
+        </div>
+    </div>
+    <!-- End Bottom Content -->
+    <!-- Begin Footer -->
+    <footer class="footer">
+        <div class="container" style="padding-bottom: 20px; margin-top: 0;">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 30px;">
+                    <div class="module widget">
+                        <div class="module-header">
+                            <h4 class="module-title ">Follow Us</h4>
+                        </div>
+                        <div class="module-body text-md-center">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6">
+                                    <ul class="list-social-icons" style="margin-top: 0px;">
+                                        <li>
+                                            <a href="http://www.facebook.com/shoptipperary" target="_blank">
+                                                <img src="/images/btns/facebook.png">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://twitter.com/ShopTipperary" target="_blank">
+                                                <img src="/images/btns/twitter.png">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://pinterest.com/tipperaryattara" target="_blank">
+                                                <img src="/images/btns/pinterest.png">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://instagram.com/shoptipperary" target="_blank">
+                                                <img src="/images/btns/instagram.png">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module-header" style="margin-top: 30px;">
+                            <h4 class="module-title">Contact Us</h4>
+                        </div>
+                        <div class="module-body text-md-center">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6">
+                                    <address>
+                                        <b>Tipperary at Tara Ltd</b><br />
+                                        3956 State Highway 2<br>
+                                        Brunswick, NY, 12180<br>
+                                        <a href="tel:15182798272" style="color: gold;">1-518-279-8272 (TARA)</a> or <a href="tel:18002558272" style="color: gold;">(800) 255-TARA</a><br>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 30px;">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6">
+                            <div class="module widget">
+                                <div class="module-header">
+                                    <h4 class="module-title text-md-center">Quick Shop by Brand</h4>
+                                </div>
+                                <div class="module-body text-md-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 30px;">
+                    <div class="module">
+                        <div class="module-header">
+                            <h4 class="module-title text-md-center">Stories & Support</h4>
+                        </div>
+                        <div class="module-body text-md-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom" style="background-color: white;">
+            <div class="container" style="padding-top: 20px; margin-top: 0;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-2 move-right" style="text-align: center;">
+                        <a href="#header">
+                            <img src="/images/footer/top.png" height="44" width="44" />
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 move-left" style="color: green;">
+                        <p style="line-height: 32px; text-align: center;">&#169; 1996 - @DateTime.Now.Year | In Perpetuity | Tipperary at Tara Ltd.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5">
+                        <ul class="list-payment-logos" style="display: table; margin-left: auto; margin-right: auto;">
+                            <li style="float: left;">
+                                <img src="/assets/images/payments/visa.png" alt="Visa" height="28" width="42">
+                            </li>
+                            <li style="float: left;">
+                                <img src="/assets/images/payments/mastercard.png" alt="MasterCard" height="28" width="42">
+                            </li>
+                            <li style="float: left;">
+                                <img src="/assets/images/payments/discover.png" alt="JCB" height="28" width="42">
+                            </li>
+                            <li style="float: left;">
+                                <img src="/assets/images/payments/american-express.png" alt="American Express" height="28" width="42">
+                            </li>
+                            <li style="float: left;">
+                                <img src="/assets/images/payments/paypal.png" alt="Paypal" height="28" width="42">
+                            </li>
+                            <li style="float: left;">
+                                <img src="/assets/images/payments/check.png" alt="Check" height="28" width="42">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" style="height: 12px;">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(window).click(function () {
+            $('.dropdown-menu').removeClass('open2');
+        });
+        $('.dropdown-toggle').click(function () {
+            $(this).parents('.dropdown-menu').addClass('open2');
+        })
+    </script>
+
+</body>
+</html>
